@@ -6,11 +6,11 @@ relative_permalinks: true
 title:            avjaarsveld
 tagline:          dev blog
 url:              http://avjaarsveld.github.io
-paginate:         1
+paginate:         10
 baseurl:          /
 author:
   name:           Albert Van-Jaarsveld
-  url:            http://avjaarsveld.github.io
+  url:            http://avjaarsveld.github.io/about
   email:          asvj3@hotmail.com
 
 # Custom vars

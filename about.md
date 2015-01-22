@@ -1,30 +1,35 @@
 ---
 layout: page
-title: About
+title: About me
+tags:
+- CV
+- Career
+- Qualifications
+- Experience
+- About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+There's lots of information about me *out there*, you just need to know where to look...
 
-In the novel, *The Strange Case of Dr. Jekyll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+## Work Experience and Qualifications
+* [My LinkedIn profile](https://uk.linkedin.com/in/albertvj) has up to date (ish) details of where
+I've worked, etc.
+* [My Monster profile](http://beknown.com/albert-vanjaarsveld) has the kind of details you'd
+normally find on a CV. I don't update this very often.
 
-There are currently two themes built on Poole:
+## Dev Community
+* I spend a lot of time on [Github](https://github.com/avjaarsveld). Unfortunately my employer's
+repositories are all private, so
+[you won't see much of what I'm up to]({% post_url 2015-01-23-My-Github-Profile-looks-empty %}).
+* I have asked extreemly few questions on
+[Stack Overflow and related sites](http://stackoverflow.com/users/1887925/avjaarsveld) (as you can
+almost always find the answer you're looking for by searching instead).
+* This blog (will when it's done) contain my dev  notes and thoughts.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+## Social
+* [My Facebook profile](https://www.facebook.com/asvj3) is where you can connect with me if we're
+friends or family.
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+## More!
 
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+If you want to know more about me, you'll have get to know me :-) ..or ask.

@@ -11,10 +11,16 @@ title: Home
         {{ post.title }}
       </a>
     </h1>
+    {% if post.tagline %}
+			<p class="tagline">{{ post.tagline }}</p>
+		{% endif %}
 
     <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
 
-    {{ post.content }}
+    {{ post.content }}<br />
+    
+    <small><a class="right" href="{{ post.url }}">Read more...</a></small>
+    <hr />
   </article>
   {% endfor %}
 </div>

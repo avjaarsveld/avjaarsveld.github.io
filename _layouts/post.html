@@ -4,9 +4,18 @@ layout: default
 
 <article class="post">
   <h1 class="post-title">{{ page.title }}</h1>
+  {% if page.tagline %}
+    <p class="tagline">{{ page.tagline }}</p>
+  {% endif %}
+  
   <time datetime="{{ page.date | date_to_xmlschema }}" class="page-date">{{ page.date | date_to_string }}</time>
   {{ content }}
 </article>
+
+<aside class="comments">
+	<h2>Comments</h2>
+		{% include disqus.html %}
+</aside>
 
 <aside class="related">
   <h2>Related Posts</h2>

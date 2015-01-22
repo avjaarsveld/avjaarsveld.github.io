@@ -1,5 +1,16 @@
 ---
 layout: post
+tags:
+- blog
+- jekyll
+- redcarpet
+- github pages
+- markdown
+- hosting
+- CSS
+- SASS
+- Tagline
+- Comments
 ---
 
 ## My first post.. but Why?
@@ -85,4 +96,129 @@ to get:
 def me
   puts "ok" if sound
 end
+```
+
+### Post Tagline
+
+I wanted to avoid excessivly long post titles, but I was creating a post that needed a long title. A
+good solution is to break the title up into a title and tagline, and it turns out doing this with
+Jekyll is really easy.
+
+Simply add your tagline (or other custom variable) to the existing 
+[front matter](http://jekyllrb.com/docs/frontmatter) like so:
+
+```
+---
+layout: post
+tagline: da bomb
+tags:
+- blog
+- jekyll
+---
+```
+Then reference the tagline like this: {% assign special = '{{ page.tagline }}' %} `{{ special }}`
+
+Use this code in your `_layouts/post.html` file to display the tagline if it's defined:
+
+``` html
+{% raw %}
+<h1 class="post-title">{{ page.title }}</h1>
+{% if page.tagline %}
+	<p>{{ page.tagline }}</p>
+{% endif %}
+{% endraw %}
+```
+
+### Comments
+
+I chose to use [Disqus](https://disqus.com) for comments. As Github Pages serve static pages/sites
+only, and comments are not static, you need a hosted comments service like Disqus.
+
+To use Disqus with Jekyll, sign up on the Disqus site and select `Universal Code` when prompted for
+the setup instructions you need. Then copy the code to where it's needed.
+
+I created a `disqus.html` partial (in the `_includes` folder), which contains the code copied from
+[disqus.com](https://disqus.com). I then include it where needed using
+`{% raw %}{% include disqus.html %}{% endraw %}`
+
+### About page<a name="about"></a>
+
+Jekyll comes with a custom `about.md` page in the root. I added an `about me` link to the top of
+every page by setting the `author: url:` to `http://avjaarsveld.github.io/about` (in `_config.yml`) 
+and then creating
+a `sitemenu` link that points to the `site.author.url` in the `_layouts/default.html` file, like so:
+
+#### HTML:
+``` html
+{% raw %}
+<div class="sitemenu right">
+	<small>
+		<a href="{{ site.author.url }}"
+		  title="About {{ site.author.name }}">about me</a>
+	</small>
+</div>
+{% endraw %}
+```
+
+#### CSS:
+``` css
+.sitemenu a {
+	color: #c0c0c0;
+	margin-left: 16px;
+}
+```
+
+### Index of Posts
+
+I added an `index of posts` link to the top of every page in the same way that I added the `about me`
+link (as mentioned [above](#about)):
+
+#### HTML:
+``` html
+{% raw %}
+<div class="sitemenu right">
+	<small>
+		<a href="/post-index" title="Index of posts">
+		  index of posts
+		</a>
+		<a href="{{ site.author.url }}"
+		  title="About {{ site.author.name }}">about me</a>
+	</small>
+</div>
+{% endraw %}
+```
+
+I then added an `post-index.html` page to the root, and used similar html to the `index.html` page
+to show a list of posts, but with the first 30 words shown (html stripped) rather than the whole post.
+A `read more...` link is also used.
+
+#### post-index.html HTML:
+``` html
+{% raw %}
+<div class="posts">
+  <h1>{{ page.title }}</h1>
+  <hr />
+  {% for post in site.posts %}
+  <article class="post">
+    <h2 class="post-title">
+      <a href="{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h2>
+    {% if post.tagline %}
+      <p class="tagline">{{ post.tagline }}</p>
+    {% endif %}
+
+    <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">
+      {{ post.date | date_to_string }}
+    </time>
+    {{ post.content | strip_html | truncatewords:30 }}<br />
+    <small>
+      <a class="right" href="{{ post.url }}">Read more...</a>
+    </small>
+    <hr />
+  </article>
+  {% endfor %}
+</div>
+{% endraw %}
 ```
