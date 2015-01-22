@@ -131,7 +131,9 @@ Use this code in your `_layouts/post.html` file to display the tagline if it's d
 
 ### Comments
 
-I chose to use [Disqus](https://disqus.com) for comments. As Github Pages serve static pages/sites
+I chose to use [Disqus](https://disqus.com) for comments, following
+[Anderson Mesquita's example](https://github.com/andersonvom/andersonvom.github.io/blob/master/_includes/disqus.html).
+As Github Pages serve static pages/sites
 only, and comments are not static, you need a hosted comments service like Disqus.
 
 To use Disqus with Jekyll, sign up on the Disqus site and select `Universal Code` when prompted for
