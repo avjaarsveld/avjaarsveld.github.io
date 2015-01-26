@@ -21,7 +21,7 @@ normally find on a CV. I don't update this very often.
 * I spend a lot of time on [Github](https://github.com/avjaarsveld). Unfortunately my employer's
 repositories are all private, so
 [you won't see much of what I'm up to]({% post_url 2015-01-23-My-Github-Profile-looks-empty %}).
-* I have asked extreemly few questions on
+* I have asked extremely few questions on
 [Stack Overflow and related sites](http://stackoverflow.com/users/1887925/avjaarsveld) (as you can
 almost always find the answer you're looking for by searching instead).
 * This blog (will when it's done) contain my dev  notes and thoughts.
