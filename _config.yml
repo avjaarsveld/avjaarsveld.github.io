@@ -4,7 +4,7 @@ relative_permalinks: true
 
 # Setup
 title:            avjaarsveld
-tagline:          dev blog
+tagline:          '#{1.0/0.0} and beyond!'
 url:              http://avjaarsveld.github.io
 paginate:         10
 baseurl:          /
