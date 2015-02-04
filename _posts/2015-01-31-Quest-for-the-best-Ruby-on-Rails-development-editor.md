@@ -66,6 +66,8 @@ From there you can open files and edit them. I have never used Textmate, but if 
 you should find that everything works as you're used to. That's because Redcar is
 based on Textmate (it's Textmate for Linux).
 
+### Shortcuts
+
 I love that you can quickly open files by pressing `Ctrl+T` and typing the first few letters of the
 file name. I didn't love that the shortcut for deleting a line was `Ctrl+Shift+K` (K for Kill line).
 So the 2nd thing I did was to change it to `Ctrl+Shift+D` (D for Delete line), as I'm used to
@@ -76,10 +78,22 @@ and environments without feeling lost.
 To change shortcut keys, use the `Keyboard Shortcuts` tool in the `Help` menu, or edit
 `key_bindings.yaml` which you can do in `Preferences` (`F2`).
 
-The next thing I did was to set the `Margin Column` character count and to turn on `Show Margin`
-and `Word Wrap`. I'm liking how redcar handles margins and auto-complete.
+> **Note**
 
-Finally I played around with auto-complete and suggestions in a ruby file, and tried out
+> `Ctrl X` (cut) will delete a line if nothing is selected. The kill (delete) shortut is useful when
+> deleting multiple lines (select text across multiple lines and execulte this command).
+
+### Word Wrap, Margin, etc
+
+The next thing I did was to set the `Margin Column` character count and to turn on `Show Margin`
+and `Word Wrap`. I'm liking how redcar handles margins and auto-complete, but after trying out
+`Word Wrap` I find that more often than not I do not use it. Luckily Redcar remembers this setting
+for each project/directory you open, so you can set this up per project (e.g. based on the type of
+project).
+
+### Edit multiple lines simultaniously
+
+I played around with auto-complete and suggestions in a ruby file, and tried out
 block-selection to comment out multiple lines, or to edit multiple lines in other ways. To do
 this, use `Ctrl+B` to toggle `block selection`, select the lines you want to edit and type away.
 
@@ -87,11 +101,20 @@ this, use `Ctrl+B` to toggle `block selection`, select the lines you want to edi
 
 > Block selection does not work with word wrapping.
 
-## That's all folks
+### .gitignore
 
-Well, its Saturday night, so I think that's it for now. I'll see how I get on with Redcar when I 
-do some real work next week...
+I needed to add `.redcar` to my `.gitignore` file. Better yet, add it to your global gitignore file,
+like so:
 
+Create the global gitignore file, in this example called `gitignore_global`
 
+```
+git config --global core.excludesfile '~/.gitignore_global'
+```
 
+Then edit the file, and include what you want to ignore, for example:
 
+```
+*~
+.redcar
+```
