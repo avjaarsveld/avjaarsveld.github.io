@@ -3,6 +3,7 @@ layout: post
 tags:
 - git
 - cheatsheet
+- development
 ---
 
 I use this as a quick reference for commands that I already know about (where I may have
