@@ -14,8 +14,10 @@ tags:
 ---
 
 I've been asked to look at a project that uses Postgres. This is what I needed to do to get
-it running in a development environment. The different/interesting bits are in the
+it running in an Ubuntu development environment. The different/interesting bits are in the
 [Setup the Database](#db) section, below.
+
+> What you see here worked, but it was a first stab and some of this can be done succinctly.
 
 ## 1. Clone Repo
 
@@ -78,8 +80,56 @@ GRANT ALL PRIVILEGES ON DATABASE db_name TO username;
 > `\q` <enter> to exit from the PostgreSQL command line utility (psql),
 > then `exit` to exit sudo su as normal
 
-### Run Migrations to complete DB setup
+### Run Migrations
+
+> This may not be a good idea if you are importing an older backup
 
 ```
 bundle exec rake db:migrate
+```
+
+### Get a copy of the database (from the live instance)
+
+> Instructions for this are in another post 
+> `Connect to an AWS instance from Ubuntu and copy the Postgres Database`
+
+### Import a backup *.sql
+
+Move the file to somewhere that the postgres user will have access to it
+(i.e. out of your home directory), in the root in this example:
+
+```
+sudo mv /home/me/Downloads/example.sql /example.sql
+```
+
+Make `postgres` the owner:
+
+```
+sudo chown postgres /example.sql
+```
+
+Change to the `postgres` user:
+
+```
+sudo su - postgres
+```
+
+You may not need to change the permissions of the file, but this is a
+good way to check that the `postgres` user has access to the file here:
+
+```
+chmod a+r /example.sql
+```
+
+Connect to the target database using psql:
+
+```
+psql -d database_name
+```
+
+Import the file:
+
+```
+\i /example.sql
+
 ```

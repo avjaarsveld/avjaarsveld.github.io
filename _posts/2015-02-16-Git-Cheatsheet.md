@@ -52,6 +52,24 @@ git commit -am "Commit message"
 git push -u origin new_branch_name
 ```
 
+## Manual Merge Workflow
+
+Checkout and update the branch that will be altered (merged into):
+
+```
+git checkout master
+git pull
+```
+
+```
+git merge other_branch
+```
+
+> If there are merge conflicts, use `git status` to see where they are, then edit those
+> files to fix the conflicts.
+> Once all conflicts have been resolved, run `git add` on the conflicted files followed
+> by `git commit` to generate the merge commit.
+
 ## Checkout
 
 ### Checkout an old Commit
@@ -109,6 +127,12 @@ git reset --soft 'HEAD^'
 
 This undoes a commit without losing changes to files.
 
+### Undo a Bundle Update
+
+```
+git checkout -- Gemfile.lock
+```
+
 ## Upstream
 
 ### Set upstream branch
@@ -137,6 +161,14 @@ git branch
 
 ```
 git status
+```
+
+### What has been changed
+
+> See [gitready.com/intermediate/2009/01/30/finding-what-has-been-changed.html](http://gitready.com/intermediate/2009/01/30/finding-what-has-been-changed.html)
+
+```
+git diff
 ```
 
 ## Save and Stash

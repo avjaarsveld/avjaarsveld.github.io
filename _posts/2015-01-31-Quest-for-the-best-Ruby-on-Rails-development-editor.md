@@ -9,16 +9,20 @@ tags:
 ---
 
 Vim is powerful, popular and helps lots of developers to be more efficient programmers. However,
-because the programmer needs to work in a different way to most other editors/IDE's, it has a
+because Vim forces you to work in a different way to most other editors/IDE's, it has a
 relatively steep learning curve and requires the developer to spend a few weeks to learn how to use
 it (that I've done) and more time to master it (that I have not found time for yet).
 
-I therefore mainly use Jedit when programming, and use vim when jedit is not available
+I therefore mainly use Jedit when programming, and use Vim when jedit is not available
 (say on someone else's computer) or when I need to quickly edit a file and I'm
 already in the terminal.
 
 I am currently in the process of setting up a new Ubuntu laptop, and thought now
 would be a good time to make sure I am using the best editor/IDE for RoR programming.
+
+> Since writing this post I have switched to mainling using Sublime Textmate 2 on a Macbook, and
+> occasionally using Sublime on Ubuntu, and rarely using Vim and hardly ever using Redcar and Jedit.
+> I'd say that untill Redcar becomes better supported Sublime is the way to go.
 
 ## What others say
 
@@ -31,6 +35,10 @@ Redcar caught my eye as it seems to have lots of useful features (good auto-comp
 plug-ins, and all the others like syntax-highlighting and auto-indentation) and looks
 easy enough to get into and learn. I also like the Textmate-like styling and way of doing things,
 even though I've never actually used Textmate. It must be Ryan Bates' influence.
+
+> Since writing this post I have started using Sublime Text 2 more and Redcar less, mainly
+> because Redcar is not yet a 100% finished project making Sublime Text slighlty more
+> conducive to quick and painless development.
 
 ## Install the Redcar Editor
 

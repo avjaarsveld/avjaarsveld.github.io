@@ -16,7 +16,6 @@ tags:
 I've got a new laptop, so I thought I'd share what I do to set up my development
 environment, to make it easier for me next time, and to help you out...
 
-> **Note:**
 > I created these notes while doing the setup, but I have not yet had a chance to review or test
 > them (I'll do that the next time I set up an Ubuntu development computer). In the mean time,
 > please excuse any errors or omissions (or better yet, let me know in the comments)
@@ -60,7 +59,6 @@ MySQL separately. This is how:
 
 ### Install RVM
 
-> **Note:**
 > Follow the latests instructions on
 > [railsapps.github.io](http://railsapps.github.io/installrubyonrails-ubuntu.html)
 > and/or [rvm.io/rvm/install](https://rvm.io/rvm/install)

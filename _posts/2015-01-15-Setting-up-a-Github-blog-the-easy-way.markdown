@@ -77,8 +77,14 @@ am still wondering whether it's obvious enough that *Styling* is a h3 and not a 
 
 ### Syntax Highliting<a name="redcarpet"></a>
 
-Use [redcarpet](https://github.com/blog/832) to do this the Github way. Simply add
-`markdown: redcarpet` to your `_config.yml` file (or replace any existing `markdown: something_else` line).
+Use [redcarpet](https://github.com/blog/832) to do this the Github way. Simply add the following two lines
+to your `_config.yml` file (or replace any existing `markdown: something_else` line):
+
+```
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+```
 
 You can then type in something like:
 
