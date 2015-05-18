@@ -7,16 +7,30 @@ tags:
 - commands
 ---
 
+### Login
+
+```
+psql -U username postgres
+```
+
 ### Show a list of Tables
 
 ```
 \dt
 ```
 
-### List of databases
+### Lists
+
+#### Databases
 
 ```
 \list
+```
+
+#### Users
+
+```
+\du
 ```
 
 ### Quit
