@@ -88,6 +88,12 @@ git checkout origin/staging --filename
 
 `origin/staging` can be a previous commit (use `git log`), etc.
 
+### Checkout the Previous Branch
+
+```
+git checkout -
+```
+
 ## Delete
 
 ### Delete a branch on local and github (remote)
