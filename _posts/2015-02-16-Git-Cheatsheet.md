@@ -116,7 +116,7 @@ Now delete the old branch on github.
 
 ## Undo
 
-> I always check online reference docs before attempting an undo as what you can do depends on where
+> Check (online) reference docs before attempting an undo as what you can do depends on where
 > in the process you are.
 
 ### Undo a merge
