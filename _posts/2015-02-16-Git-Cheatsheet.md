@@ -139,6 +139,14 @@ This undoes a commit without losing changes to files.
 git checkout -- Gemfile.lock
 ```
 
+Sometimes `Gemfile.lock` is updated by bundle, and whatever you do in git does not work as bundle keeps updating it (I do not want to push these changes to Gemfile.lock). In that case the following has worked for me (remove the file and fetch it again):
+
+```
+git rm -f Gemfile.lock
+git fetch
+git checkout FETCH_HEAD -- Gemfile.lock
+```
+
 ## Upstream
 
 ### Set upstream branch
