@@ -190,3 +190,12 @@ brew install redis
 redis-server &
 ```
 
+## Tests
+
+### Setup Test Database
+
+```
+bundle exec rake db:migrate
+bundle exec rake db:test:prepare
+bundle exec rspec
+```
