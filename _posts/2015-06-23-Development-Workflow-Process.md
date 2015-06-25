@@ -51,8 +51,6 @@ Some examples of Development Workflows
  ___________________________
 ( Ticket moved to test lane )
  ---------------------------
-
-
 ```
 
 ## My previous Development Workflow (using Redmine, Github, Git, AWS)
