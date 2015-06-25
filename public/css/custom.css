@@ -1,0 +1,10 @@
+.inline-button {
+  padding: 8px;
+  background-color: lightblue;
+  float: right;
+  margin: -8px 2px 2px;
+  border-radius: 8px;
+  line-height: 80%;
+  color: white;
+  font-size: 75%
+}
