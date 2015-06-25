@@ -6,33 +6,54 @@ tags:
 - Process
 - Staging
 ---
+
 Some examples of Development Workflows
 
 ## My current Development Workflow (using Jira, Bitbucket, Git, AWS)
 
 > This process works well as part of a larger development team
 
-1. Create a branch from the `master` branch `[In Development]`
+```
+*---------------------------------------*
+| Select first open ticket from backlog | <--------------------------.
+*---------------------------------------*                            |
+                  ||                                                 |
+                  \/                                                 |
+*-----------------------------------*                                |
+| Set Jira ticket to In Development | => *-----------------------*   |
+*-----------------------------------*    | Branch from master,   |   |
+                          *---------*    | the name should start |   |
+     .------------------->|         |    | with Jira ticket name |   |
+     |   .-----------.    | Do work | <= *-----------------------*   |
+    (no)-| finished? | <= *---------*                                |
+         .-----------.                                               |
+               |      *-----------------------------------------*    |
+             (yes)--->| Create pull request (to merge into dev) |    |
+                      *-----------------------------------------*    |
+                        ||    _____________________________________  |
+                        L==> ( Ticket moved to Review lane in Jira ) |
+                              -------------------------------------  |
+           .---------------------------------.     ||                |
+           |                                 | <===                  |
+     (yes)-| Pull request to review present? |                       |
+       |   .---------------------------------.-(no)-------------------
+       v
+*-------------*    .-------------.        .-----------.--------(yes)
+| Select pull | => | has issues? |-(yes)->| critical? |          |
+| request     |    .-------------.        .-----------.---(no)   |
+*-------------*          /    ^       ______________________|     |
+                        /     |      |                           v
+*-----------------*    /      |      v       *-----------------------*
+| Approve request |<-(no)  *--------------*  | Reject pull request - |
+*-----------------*        | Add Comments |  | New request required  |
+        ||                 *--------------*  *-----------------------*
+        \/
+ ___________________________
+( Ticket moved to test lane )
+ ---------------------------
 
-    > The name should be or start with the Jira ticket name/number.
 
-2. Do some work `[In Development]`
-
-        Make some changes, commit them, push them (to Bitbucket)
-
-3. Create a pull request to merge your branch into the `dev` branch `[Code Review]`
-
-4. The work is reviewed and the pull request is approved (or rejected) `[Code Review]`
-
-    > If the pull request is rejected, check the comments, action any issues raised and create a new pull request for the new work/changes
-
-5. QA is done and the branch is merged into the `dev` branch (or bugs are raised) `[Testing]`
-
-    > If bugs are raised, the Jira ticket is returned to the `[In Development]` state
-
-6. The new features are demonstrated (on Staging) `[Demo]`
-
-7. The `dev` branch is merged with the `master` branch
+```
 
 ## My previous Development Workflow (using Redmine, Github, Git, AWS)
 
