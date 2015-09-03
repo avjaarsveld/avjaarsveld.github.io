@@ -71,6 +71,8 @@ sudo su - postgres
 psql
 ```
 
+> See [Useful Postgres Commands](/2015/03/09/Useful-Postgres-Commands/)
+
 ```
 CREATE USER username WITH PASSWORD 'password';
 CREATE DATABASE db_name WITH OWNER username;
