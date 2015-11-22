@@ -46,25 +46,28 @@ lib/parser.rb :
 
 ```
 require 'optparse'
-require_relative 'other_thing' # lib/other_thing.rb and spec/lib/other_thing_spec.rb
+
+# lib/other_thing.rb and spec/lib/other_thing_spec.rb
+require_relative 'other_thing'
+
 class Parser
   def initialize
     @options = {}
     OptionParser.new do |opts|
       opts.banner = "Usage: parser [options]"
 
-      @options[:something] = :first_boolean_option # default
+      @options[:something] = :first_option # default
 
       # Scan the ARGV for a filename and raise if ARGV is empty
       opts.parse
       @options[:filename] = ARGV.pop
       
-      # Could raise an error insted of using this default - default seems more user friendly
+      # Could raise an error insted of using this default
       @options[:filename] = 'webserver.log' unless @options[:filename] # default
 
-      # Optional argument with keyword completion for type of something
-      opts.on("-t", "--type [TYPE]", [:first_boolean_option, :second_boolean_option],
-              "Select type (first_boolean_option, second_boolean_option)") do |t|
+      # Optional argument with keyword completion for type
+      opts.on("-t", "--type [TYPE]", [:first_option, :second_option],
+              "Select type (first_option, second_option)") do |t|
         @options[:something] = t
       end
 
