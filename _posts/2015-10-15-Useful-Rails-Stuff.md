@@ -27,7 +27,7 @@ bundle exec rails generate scaffold Branch charity:references name:string descri
 rails generate scaffold need_tag name:string tagable:references{polymorphic}
 ```
 
-# Setup Rails with Tests
+# Setup a new Rails app with Tests
 
 I don't need to do this very often, so when I do there is always something I need to look up. So time to make some notes...
 

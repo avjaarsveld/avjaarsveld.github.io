@@ -30,4 +30,50 @@ a,b = ["1", "2"]
 => "2"
 ```
 
+# Create a new Ruby app with options/parser
+
+`rspec --init`
+
+bin/parser :
+
+```
+#!/usr/bin/env ruby
+require_relative '../lib/parser'
+Parser.new.parse
+```
+
+lib/parser.rb :
+
+```
+require 'optparse'
+require_relative 'other_thing' # lib/other_thing.rb and spec/lib/other_thing_spec.rb
+class Parser
+  def initialize
+    @options = {}
+    OptionParser.new do |opts|
+      opts.banner = "Usage: parser [options]"
+
+      @options[:something] = :first_boolean_option # default
+
+      # Scan the ARGV for a filename and raise if ARGV is empty
+      opts.parse
+      @options[:filename] = ARGV.pop
+      
+      # Could raise an error insted of using this default - default seems more user friendly
+      @options[:filename] = 'webserver.log' unless @options[:filename] # default
+
+      # Optional argument with keyword completion for type of something
+      opts.on("-t", "--type [TYPE]", [:first_boolean_option, :second_boolean_option],
+              "Select type (first_boolean_option, second_boolean_option)") do |t|
+        @options[:something] = t
+      end
+
+    end.parse!
+  end
+  def parse
+    # Do stuff
+  end
+end
+```
+
 ... more to come ...
