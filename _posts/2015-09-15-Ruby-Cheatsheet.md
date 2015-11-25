@@ -32,6 +32,12 @@ a,b = ["1", "2"]
 
 # Create a new Ruby app with options/parser
 
+`cd ~/projects/`
+
+`git init example`
+
+`cd example/`
+
 `rspec --init`
 
 bin/parser :
@@ -42,16 +48,46 @@ require_relative '../lib/parser'
 Parser.new.parse
 ```
 
+spec/lib/parser_spec.rb :
+
+```
+require 'spec_helper'
+require './lib/parser'
+
+describe Parser do
+  let :prime_numbers do
+    [2,3,5,7,11,13,17,19,23,29]
+  end
+
+  it 'can return the first 10 prime numbers' do
+    # The line below will work if `first_ten_prime_numbers` is not protected/private
+    # expect(Parser.new.first_ten_prime_numbers).to eq (prime_numbers)
+    expect(Parser.new.instance_variable_get(:@prime_numbers)).to eq (prime_numbers)
+  end
+
+  xit 'can return the whole table as an array of strings' do
+    expected_result = [' 2 |   4   6  10  14  22  26  34  38  46  58']
+    expected_result << ' 3 |   6   9  15  21  33  39  51  57  69  87'
+    # etc...
+
+    expect(Parser.new.parse).to eq(expected_result)
+  end
+end
+```
+
+
 lib/parser.rb :
 
 ```
 require 'optparse'
+require 'prime'
 
-# lib/other_thing.rb and spec/lib/other_thing_spec.rb
-require_relative 'other_thing'
+# Uncomment line below when lib/other_file.rb and spec/lib/other_file_spec.rb are in place
+# require_relative 'other_file_in_same_folder' # like require_relative './other_file'
 
 class Parser
   def initialize
+    @prime_numbers = first_ten_prime_numbers
     @options = {}
     OptionParser.new do |opts|
       opts.banner = "Usage: parser [options]"
@@ -73,10 +109,23 @@ class Parser
 
     end.parse!
   end
+
   def parse
     # Do stuff
+  end
+
+  def first_ten_prime_numbers
+    @prime_numbers ||= Prime.first 10
   end
 end
 ```
 
-... more to come ...
+Run `rspec` to test
+
+## Command Line
+
+> Run `chmod u+x bin/parser` to make `parser` executable (from the command line, for example `bin/parser`)
+
+`bin/parser -t s filename` for `:something=>:second_option, :filename=>"filename"`
+
+`bin/parser -t first_option filename` for `:something=>:first_option, :filename=>"filename"`
