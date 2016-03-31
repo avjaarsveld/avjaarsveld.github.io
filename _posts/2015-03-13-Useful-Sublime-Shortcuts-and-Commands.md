@@ -14,6 +14,12 @@ online.
 
 > Work in progress. Comment if you think there is somehing I should list here.
 
+## Searching
+
+### Exclude directories form global search
+
+e.g `-*/my_mobile_site/intermediate/*, -*/my_mobile_site/publish/*`
+
 ## Selection
 
 ### Select Next
