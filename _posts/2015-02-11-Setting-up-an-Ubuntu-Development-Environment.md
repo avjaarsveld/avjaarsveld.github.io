@@ -138,3 +138,35 @@ bundle install
 ### Check bundler is working:
 
 `bundle -v` or `bundle exec rails s` or `bundle exec jekyll serve`
+
+## More Customization
+
+### Git Aliases
+
+Add a simple alias (and create the .gitconfig file if it's not already created) with `git config --global alias.st status`
+
+Edit .gitconfig and add any other aliases you'd like to use, like:
+
+```
+st = status
+l = log
+uncommit = !git reset --soft 'HEAD^' && echo '' && git status
+sreset = !git uncommit
+
+# Add All and Commit
+aac = !echo "Enter commit message:" && read MSG && echo "" && echo "Status before chagnes:" && echo "======================" && git status && echo "" && echo "Adding all..." && echo "=============" && git add . && echo "" && echo "Committing..." && echo "=============" && git commit -m \"$MSG\" && echo "" && echo "New status:" && echo "===========" && git status
+
+# Commit with bumped Version number
+cv = !git commit -m \"Bumped to version $(head -n 1 VERSION)\"
+
+# Add All and Commit with bumpted Version number
+aacv = !echo "Status before chagnes:" && echo "======================" && git status && echo "" && echo "Adding all..." && echo "=============" && git add . && echo "" && echo "Committing..." && echo "=============" && git commit -m \"Bumped to version $(head -n 1 VERSION)\" && echo "" && echo "New status:" && echo "===========" && git status
+```
+
+See [this article](http://haacked.com/archive/2014/07/28/github-flow-aliases/) for some good advice RE Git Aliases.
+
+### ZSH (Command Alisases)
+
+After installing ZSH, you may want to add some aliases here too, like `alias edit="subl --wait --new-window"`
+
+Open .zshrc (`subl ~/.zshrc`), add the above mentioned alias to the alias section, save, close and run `. ~/.zshrc` to update the terminal. Now you can use `edit ~/.gitconfig` etc to open files or folders in Sublime.
