@@ -14,7 +14,6 @@ for better productivity and to keep my Colour Theme.
 
 ## Installing Add-Ons (Packages)
 
-
 E.g:
 
 1. `CMD + Shift + P`

@@ -17,6 +17,8 @@ scp user@server:platform/config/web/dump.sql ~/
 mysql -u root cust_server_prodction < dump.sql
 ```
 
+> To be prompted for the password use `mysqldump -u root -p db_name > dump.sql`
+
 You may need to create the database locally before importing into it with the following
 
 ```
